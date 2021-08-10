@@ -1,0 +1,41 @@
+<%- include('../includes/header.ejs') %>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/shopdetails.css">
+
+</head>
+<body>
+  <%- include('../includes/nav.ejs') %>
+<form method="POST" action="/searchdetails">
+<input type="hidden" value="<%=csrfToken%>" name="_csrf"> 
+<input type="text" placeholder="Search.." name="searchtext">
+<button type="submit">Search</button><div><br><br><br>
+</form>
+
+<%if(data.length>0){%>
+  <div class="row">
+    <%for(let a of data){%>
+      <div class="col-md-6 col-sm-4 col-lg-4">
+        <div class="card" style="width: 20rem; height: 100%;"> 
+        <div class="card-body">
+          <h1 class="card-name"><p>Name :</p><%=a._name%></h1>
+          <h1 class="card-name"><p>Image :</p><img src="../<%=a._image%>" height="90px"></h1>
+          <!-- <h1 class="card-name"><p>Image :</p><%=a._image%></h1> -->
+          <h1 class="card-name"><p>Description :</p><%=a._description%></h1>
+          <h1 class="card-name"><p>Price :</p><%=a._price%></h1>
+          
+          <form action="/addtocart" method="POST">
+            <input type="hidden" name="quantity" value="1">
+            <input type="hidden" name="product_Id" value="<%=data._id%>">
+            <a href="/cartejs/<%=a._id%>" class="btn btn-primary">Add to Cart</a>
+          </form>
+          <!-- <a href="#" class="btn btn-primary">Buy Now</a> -->
+        </div> 
+        </div>
+      </div>
+      <%}%>
+  </div>
+  <%}else{%>
+    <h2>data not found</h2>
+    <%}%>
+    
+  

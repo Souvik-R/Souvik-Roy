@@ -1,0 +1,47 @@
+<%- include('../includes/header.ejs') %>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/footer.css">
+
+    <title>Form</title>
+   
+    </head>
+    <body>
+        <%- include('../includes/nav.ejs') %>
+        <div id="mydiv">
+    <form action="/postValue" method="POST" enctype="multipart/form-data"> 
+        <input type="hidden" value="<%=csrfToken%>" name="_csrf">   
+        <div class="col-md-4 col-md-offset-4" id="login">
+            <section id="inner-wrapper" class="login">
+                <article>
+                    <form>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                                <input type="text" class="form-control" placeholder="Product Name" name="pname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
+                                <input type="file" name="pimage">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                                <input type="text" class="form-control" placeholder="Product Description" name="pdes">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input type="password" class="form-control" placeholder="Product Price" name="pprice">
+                            </div>
+                        </div>
+                          <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    </form>
+                </article>
+            </section></div>
+        </div>
+    <%- include('../includes/footer.ejs') %> 

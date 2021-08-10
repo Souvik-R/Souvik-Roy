@@ -1,0 +1,46 @@
+<%- include('../includes/header.ejs') %>
+<style>
+.container{
+    text-align: center;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    background-color: hsla(120, 100%, 50%, 0.3);
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Admin Section</h1>
+<%if(data.length>0){%>
+   
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Description</th>
+            <th scope="col">price</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <%for(let a of data){%>
+          <tr>
+            <th scope="row"></th>
+            <td><%=a._name%></td>
+            <td><%=a._image%><img src="../<%=a._image%>" height="90px"></td>
+            <td><%=a._description%></td>
+            <td><%=a._price%></td>
+            <td><a href="/editValue/<%=a._id%>" class="btn btn-primary">Edit</a></td>
+            <td><a href="/deleteData/<%=a._id%>" class="btn btn-primary">Delete</a></td>
+          </tr>
+           <%}%>
+        </tbody>
+
+      </table>
+      <%}else{%>
+        <h1>Data Not Found</h1>
+        <%}%>
+</div>

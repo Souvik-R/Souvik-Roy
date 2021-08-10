@@ -1,0 +1,46 @@
+<%- include('../includes/header.ejs') %>
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>Registration Form</title>
+           
+    </head>
+    <body>
+        <%- include('../includes/nav.ejs') %>
+        <h1>Edit Page</h1>
+    <form action="/editValue" method="POST" enctype="multipart/form-data">    
+        <div class="col-md-4 col-md-offset-4" id="login">
+            <section id="inner-wrapper" class="login">
+                <article>
+                    <form>
+                        <input type="hidden" name="product_id" value="<%=data._id%>"> 
+                        <input type="hidden" value="<%=csrfToken%>" name="_csrf"> 
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                                <input type="text" class="form-control" placeholder="Product Name" name="pname" value="<%=data._name%>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
+                                <input type="file" name="pimage" value="<%=data._image%>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                                <input type="text" class="form-control" placeholder="Product Description" name="pdes" value="<%=data._description%>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input type="password" class="form-control" placeholder="Product Price" name="pprice" value="<%=data._price%>">
+                            </div>
+                        </div>
+                          <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    </form>
+                </article>
+            </section></div>
+    <%- include('../includes/footer.ejs') %> 
