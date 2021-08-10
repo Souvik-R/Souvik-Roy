@@ -1,0 +1,11 @@
+touch .gitignore
+git commit --global user.name "souvik"
+git commit --global user.email "roysouvikr112@gmail.com"
+git init
+git add .
+git commit -m "Initial Commit"
+git status
+ssh-keygen -t ed25519 -C "roysouvikr112@gmail.com"
+cat /c/Users/royso/.ssh/id_ed25519.pub  #paste this key o github
+git remote add origin <ssh url.git>
+git push origin master
